@@ -1,20 +1,6 @@
-import { useState } from 'react'
-import Header from './assets/Header'
+import Routes from './routes'
+import './global.css'
 
 export default function App() {
-
-  const [counter, setCounter] = useState(0)
-
-  function increment(){
-    setCounter(counter + 1)
-  }
-
-  return (
-    <div>
-      <Header>
-        Counter: {counter}
-      </Header>
-      <button onClick={increment}>add</button>
-    </div>
-  )
+  return (<Routes/>)
 }
