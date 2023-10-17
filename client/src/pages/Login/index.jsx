@@ -3,14 +3,14 @@ import logoImage from '../../assets/logo.svg'
 import padlock from '../../assets/padlock.png'
 import React, {useState} from 'react'
 import api from '../../services/api'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     async function login (e){
         e.preventDefault();
@@ -26,7 +26,7 @@ export default function Login(){
             localStorage.setItem('username', username);
             localStorage.setItem('accessToken', response.data.accessToken);
 
-            history.push('/books')
+            navigate('/books')
         } catch (error) {
             alert('Login faild! Try agains!')
         }
@@ -52,7 +52,6 @@ export default function Login(){
                     <button className='button' type='submit'>Login</button>
                 </form>
             </section>
-
             <img src={padlock} alt="Login" />
         </div>
     )
